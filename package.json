@@ -1,0 +1,23 @@
+{
+  "name": "ipfseth_filesharing",
+  "version": "1.0.0",
+  "description": "A DApp that allows users to share files on the IPFS network, using an Ethereum smart contract to index the shared files' metadata.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yagotzirck/ipfsEth_fileSharing.git"
+  },
+  "author": "Alessio \"Yagotzirck\" Simbula",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Yagotzirck/ipfsEth_fileSharing/issues"
+  },
+  "homepage": "https://github.com/Yagotzirck/ipfsEth_fileSharing#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "hardhat": "^2.22.6"
+  }
+}
