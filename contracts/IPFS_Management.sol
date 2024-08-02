@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 struct File {
     uint    fileId;     // An incremental number associated to each loaded file
     string  fileName;   // "<filename>.<extension>"" format, e.g. "book.pdf" 
-    bytes32 cid;        // The file's CID in the IPFS network
+    string  cid;        // The file's CID in the IPFS network
 }
 
 struct User {
@@ -63,7 +63,7 @@ contract IPFS_Management {
      
      function addFile(
         string calldata fileName,
-        bytes32 cid
+        string calldata cid
      ) external onlyAuthUsers
      {
         address userAddr = msg.sender;
@@ -82,5 +82,13 @@ contract IPFS_Management {
      {
         address userAddr = msg.sender;
         return users[userAddr].files;
+     }
+
+
+     function getOwnerAddress()
+     external view
+     returns (address ownerAddr)
+     {
+        return owner;
      }
 }
