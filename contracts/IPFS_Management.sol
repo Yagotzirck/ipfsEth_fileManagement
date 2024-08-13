@@ -57,10 +57,12 @@ contract IPFS_Management {
         users[owner].isAuthorized = true;
      }
 
+
      function addUser(address newUser) external onlyOwner {
         users[newUser].isAuthorized = true;
      }
      
+
      function addFile(
         string calldata fileName,
         string calldata cid
@@ -76,6 +78,7 @@ contract IPFS_Management {
         );
      }
 
+
      function viewFiles()
      external view onlyAuthUsers
      returns (File[] memory files)
@@ -90,5 +93,22 @@ contract IPFS_Management {
      returns (address ownerAddr)
      {
         return owner;
+     }
+
+
+     function isAuthorized()
+     external view
+     returns (bool)
+     {
+        address userAddr = msg.sender;
+        return users[userAddr].isAuthorized;
+     }
+
+
+     function isAdmin()
+     external view
+     returns (bool)
+     {
+        return msg.sender == owner;
      }
 }
