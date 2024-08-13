@@ -28,12 +28,22 @@ function InitDApp( {setState, resetState} ){
         );
 
         // Initialize the DApp's state
-        setState({
-            isAuthorized:   await sc.isAuthorized(),
-            isAdmin:        await sc.isAdmin(),
-            userAddress:    userAddr,
-            contract:       sc
-        });
+        try {
+            setState({
+                isAuthorized:   await sc.isAuthorized(),
+                isAdmin:        await sc.isAdmin(),
+                userAddress:    userAddr,
+                contract:       sc
+            });
+        } catch(error) {
+            const errMsg =
+            "Couldn't call contract methods isAuthorized() / isAdmin().\n" +
+            "Did you connect your wallet to the same network where the " +
+            "contract has been deployed?\nException message:\n" + error;
+
+            setState({ errorMsg: errMsg });
+            console.log(errMsg);
+        };
 
         // If the user changes account on his wallet, reset the state
         window.ethereum.on("accountsChanged", ([newAddress]) => {

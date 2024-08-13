@@ -6,6 +6,7 @@ function useDAppState() {
     contract:     undefined,
     isAuthorized: undefined,
     isAdmin:      undefined,
+    errorMsg:     undefined
   };
 
   const [DAppState, setDAppState] = useState(initialState);

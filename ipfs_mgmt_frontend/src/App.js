@@ -10,11 +10,11 @@ function App() {
     <>
     <h1>IPFS File Management</h1>
     {
-      !state.userAddress?
-        <InitDApp setState={setState} resetState={resetState} />
+      state.errorMsg?
+        <p className="error">{state.errorMsg}</p>
       :
-        state.errorMsg?
-          <p className="error">{state.errorMsg}</p>
+        !state.userAddress?
+          <InitDApp setState={setState} resetState={resetState} />
         :
           !state.isAuthorized?
             <p className="error">
