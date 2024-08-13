@@ -1,0 +1,9 @@
+body {
+  margin: 10px;
+  }
+
+.error {
+  font-size: larger;
+  font-weight: bold;
+  color: red;
+}
