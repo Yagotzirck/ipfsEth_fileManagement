@@ -1,6 +1,7 @@
 import "./hooks/useDAppState";
 
 import InitDApp from "./InitDApp";
+import DApp from "./DApp";
 import useDAppState from "./hooks/useDAppState";
 
 function App() {
@@ -21,8 +22,7 @@ function App() {
               Your Ethereum address hasn't been authorized by the Smart Contract owner.
             </p>
           :
-            //<Dapp state={state} setState={setState} />
-            <p>The Dapp has been correctly initialized.</p>
+            <DApp state={state} />
     }
     </>
   );
