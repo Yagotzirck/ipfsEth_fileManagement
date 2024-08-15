@@ -74,7 +74,6 @@ describe("IPFS_Management contract", function () {
     "Users not authorized by the owner can't add new files",
     async function()
     {
-
       const {
         hardhatIPFS_Management, _, addr1
       } = await loadFixture(deployIPFS_ManagementFixture);
@@ -99,7 +98,6 @@ describe("IPFS_Management contract", function () {
     "Users not authorized by the owner can't call viewFiles()",
     async function()
     {
-
       const {
         hardhatIPFS_Management, _, addr1
       } = await loadFixture(deployIPFS_ManagementFixture);
@@ -120,7 +118,6 @@ describe("IPFS_Management contract", function () {
     "Only the owner can add new users",
     async function()
     {
-
       const {
         hardhatIPFS_Management, _, addr1, addr2
       } = await loadFixture(deployIPFS_ManagementFixture);
@@ -135,6 +132,27 @@ describe("IPFS_Management contract", function () {
       ).to.be.revertedWith(revertMsg);
 
     });
+
+    it(
+      "Adding a public file should emit a PublicFile event",
+      async function()
+      {
+        const {
+          hardhatIPFS_Management, owner
+        } = await loadFixture(deployIPFS_ManagementFixture);
+
+        const fileName1 = "Test1.txt";
+        const fileCID1 = "QmWBaeu6y1zEcKbsEqCuhuDHPL3W8pZouCPdafMCRCSUWk";
+
+        await expect(
+          hardhatIPFS_Management.addPublicFile(
+            fileName1, fileCID1
+          )
+        ).to.emit(
+          hardhatIPFS_Management, "PublicFile"
+        ).withArgs(owner, 0, fileName1, fileCID1);
+
+      });
 
   });
 });

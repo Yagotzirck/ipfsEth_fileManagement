@@ -27,6 +27,14 @@ contract IPFS_Management {
     // A mapping associating each authorized user to its User struct
     mapping (address => User) private users;
 
+    // Event that will be emitted when sent files are marked as public
+    event PublicFile(
+        address indexed uploader,
+        uint fileID,
+        string fileName,
+        string cid
+    );
+
 
     /****************************************************
      * Modifiers
@@ -76,6 +84,15 @@ contract IPFS_Management {
                 cid
             )
         );
+     }
+
+
+     function addPublicFile(
+        string calldata fileName,
+        string calldata cid
+     ) external onlyAuthUsers
+     {
+        emit PublicFile(msg.sender, currId++, fileName, cid);
      }
 
 
