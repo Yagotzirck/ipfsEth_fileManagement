@@ -1,4 +1,7 @@
 import { useState } from "react"
+
+import UploadFile from "./UploadFile"
+
 import "./App.css"
 
 function DApp( {state} ){
@@ -70,8 +73,7 @@ function DApp( {state} ){
     {
         (() => {
             switch(dappAction){
-                // case "UploadFile": return <UploadFile state={state} />;
-                case "UploadFile": return (<p>UploadFile selected</p>);
+                case "UploadFile": return <UploadFile state={state} />;
                 case "AddUser": return (<p>AddUser selected</p>);
                 case "ViewPrivFiles": return (<p>ViewPrivFiles selected</p>);
                 case "ViewPubFiles": return (<p>ViewPubFiles selected</p>);

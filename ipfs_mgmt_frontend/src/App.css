@@ -13,6 +13,12 @@ h1,h2 {
   color: red;
 }
 
+.message {
+  font-size: large;
+  font-weight: bold;
+  color: green;
+}
+
 /* Styles used for the radio button */
 .button-group {
   flex-grow: 1;
@@ -50,4 +56,18 @@ h1,h2 {
 fieldset {
   border: 0;
   display: flex;
+}
+
+/* Put each form field on a new line */
+.upload {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #333;
 }
