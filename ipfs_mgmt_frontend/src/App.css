@@ -71,3 +71,10 @@ fieldset {
   color: #fff;
   border: 1px solid #333;
 }
+
+/* resize input type="text" in AddUser component */
+.resizedTextBox {
+  width: 350px;
+  height: 20px;
+  padding: 1px
+}
