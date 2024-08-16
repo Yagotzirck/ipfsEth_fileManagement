@@ -2,6 +2,7 @@ import { useState } from "react"
 
 import UploadFile from "./UploadFile"
 import AddUser from "./AddUser"
+import ViewPrivFiles from "./ViewPrivFiles"
 
 import "./App.css"
 
@@ -71,12 +72,14 @@ function DApp( {state} ){
     </div>
     </fieldset>
 
+    <hr />
+
     {
         (() => {
             switch(dappAction){
                 case "UploadFile": return <UploadFile state={state} />;
                 case "AddUser": return <AddUser state={state} />;
-                case "ViewPrivFiles": return (<p>ViewPrivFiles selected</p>);
+                case "ViewPrivFiles": return <ViewPrivFiles state={state} />;
                 case "ViewPubFiles": return (<p>ViewPubFiles selected</p>);
             }
         })()
