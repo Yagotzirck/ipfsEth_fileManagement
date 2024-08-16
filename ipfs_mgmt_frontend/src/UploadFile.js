@@ -58,7 +58,7 @@ function UploadFile( {state} ){
 
         } catch(error){
             setMsg("");
-            setErrMsg(error.message);
+            setErrMsg(error);
             return;
         }
 
