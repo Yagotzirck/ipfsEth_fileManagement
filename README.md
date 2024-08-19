@@ -14,15 +14,15 @@ help from Google and/or the Hardhat documentation.
 - **Pinata API key** and **dedicated gateway**
 - **Node.JS** (a recent version; for reference, this project was developed with version 20.15.0)
 
+**NOTE**: if you want to connect to a contract already deployed by another user, skip to the section
+**Frontend setup**.
 
-## Setup steps
+## Backend setup and contract deployment
 
-### Installation
+### Hardhat framework - Installation
 Open a terminal, move in the project root folder and install the Hardhat framework by entering the command:
 
 	npm install
-Then, do the same in the subfolder **ipfs_mgmt_frontend** to install the React frontend.
-
 
 ### Hardhat variables' setup for deployment
 Move back to the project root folder, and set up two Hardhat variables with the following two commands:
@@ -45,17 +45,32 @@ From the project root folder, enter the following command:
 Check out the output messages to make sure everything went fine.
 
 
-### Frontend setup
+## Frontend setup
+Once the deployment is done, we can proceed to the configuration of the React frontend.
+
+ #### React frontend - Installation
+Open a terminal in the subfolder **ipfs_mgmt_frontend** and install the React frontend by entering the command:
+
+	npm install
 
 #### ABI and contract's address
-Once the deployment is done, we need to make the ABI and contract's address
-files accessible to the React frontend.
+We need to make the ABI and contract's address files accessible to the React frontend.
 
-Open a terminal in the project root folder and enter the following commands:
+If you deployed the contract, open a terminal in the project root folder and enter the following commands:
 
 	mkdir ./ipfs_mgmt_frontend/src/contracts
 	cp ./ignition/deployments/chain-11155111/artifacts/IPFS_Management_Module#IPFS_Management.json ./ipfs_mgmt_frontend/src/contracts/
 	cp ./ignition/deployments/chain-11155111/deployed_addresses.json ./ipfs_mgmt_frontend/src/contracts/
+
+Alternatively, if you just want to connect to a Smart Contract deployed by another user, ask the Smart Contract owner to be added
+to the list of authorized users by giving him your account's public address; also, ask him to give you the ABI and contract address
+files to be placed in the subfolder
+
+**./ipfs_mgmt_frontend/src/contracts/**
+
+More precisely, he should provide you with the files
+- IPFS_Management_Module#IPFS_Management.json
+- deployed_addresses.json
 	
 #### Pinata API key and dedicated gateway
 Create a file named ".env" in the subfolder "ipfs_mgmt_frontend" and paste the following lines in it:
@@ -71,9 +86,3 @@ Open a terminal in the subfolder "ipfs_mgmt_frontend" and enter the command
 If you executed all the previous steps correctly, your default browser will start up automatically with the
 DApp screen on it (if not, it should be accessible by inserting **localhost:3000** in the address bar)
 and the DApp is now ready to be used.
-
-If you want other users to use the DApp by connecting to the same smart contract you deployed,
-you should let them install/configure only the frontend (see the **Installation** and **Frontend setup** sections above), sending them
-the ABI and contract address files to be placed in the subfolder
-
-**./ipfs_mgmt_frontend/src/contracts/**
