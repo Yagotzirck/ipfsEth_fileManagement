@@ -78,6 +78,8 @@ Create a file named ".env" in the subfolder "ipfs_mgmt_frontend" and paste the f
 	REACT_APP_PINATA_JWT=<Your PINATA private key as a JWT token>
 	REACT_APP_PINATA_GATEWAY=<Your Pinata gateway, e.g. https://<your-gateway-domain>.mypinata.cloud>
 
+ By default, the private gateway is restricted to download only the files pinned / uploaded by the account associated to that gateway; in order to remove that restriction for yourself, open [Pinata's Access Controls](https://app.pinata.cloud/developers/gateway-settings/) and add your IP (*which you can retrieve [here](https://www.ipaddress.com/), for instance*) to the **IP Addresses** section.
+
 ## Launching the DApp
 Open a terminal in the subfolder "ipfs_mgmt_frontend" and enter the command
 
