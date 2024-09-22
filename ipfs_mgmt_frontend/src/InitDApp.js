@@ -12,15 +12,14 @@ import "./App.css"
 function InitDApp( {setState, resetState} ){
 
     async function init(){
-
         // Create a provider using the user's wallet (window.ethereum)
         const provider = new ethers.BrowserProvider(window.ethereum);
         // It will prompt user for account connections if it isnt connected
         const signer = await provider.getSigner();
         const userAddr = await signer.getAddress();
         
-        // Initialize the contract using that provider and the token's
-        // artifact
+        // Initialize the contract using that provider
+        // and the contract's artifact + deployed address
         const sc = new ethers.Contract(
             contract_address["IPFS_Management_Module#IPFS_Management"],
             contract_artifact.abi,
